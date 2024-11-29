@@ -7,7 +7,7 @@ class Books{
     }
     }
     
-    var firstBook = new Books("<img src='images/kitap.jpg' style='width:200px'>","The Witcher: Kirlangic Kulesi","Andrzej Sapkowski","Fantasy");
+    var firstBook = new Books("<img src='images/kitap.jpg' style='width:200px'>","The Witcher","Andrzej Sapkowski","Fantasy");
     var secondBook = new Books("<img src='images/kitap2.jpg' style='width:200px'>","1984","George Orwell","Novel");
     var thirdBook = new Books("<img src='images/kitap3.jpg' style='width:200px'>","Twelve Rules for Life","Jordan Peterson","Self Improvement");
     var fourthBook = new Books("<img src='images/kitap4.jpg' style='width:200px'>","Atomic Habits","James Clear","Self Improvement");
@@ -1293,17 +1293,19 @@ function filterFantasy(){
 function searchBook(){
 
     var searchedBook = document.getElementById("searchForBooks").value;
-    var firstBook = "the witcher";
-    var secondBook = "1984";
-    var thirdBook = "Hayat Icin 12 Kural";
-    var fourthBook = "Atomik Aliskanliklar";
-    var fifthBook = "Muhtesem Gatsby";
-    var sixthBook = "Darth Bane: Yikim Yolu";
-    var seventhBook = "Zengin Baba Yoksul Baba";
-    var eighthBook = "Don Kisot";
-    var ninthBook = "Taht Oyunlari";
+    searchedBook.toLowerCase();
+    
+    var firstOne = firstBook.book_title.toLowerCase();
+    var secondOne = secondBook.book_title.toLowerCase();
+    var thirdOne = thirdBook.book_title.toLowerCase();
+    var fourthOne = fourthBook.book_title.toLowerCase();
+    var fifthOne = fifthBook.book_title.toLowerCase();
+    var sixthOne = sixthBook.book_title.toLowerCase();
+    var seventhOne = seventhBook.book_title.toLowerCase();
+    var eighthOne = eighthBook.book_title.toLowerCase();
+    var ninthOne = ninthBook.book_title.toLowerCase();
 
-    if(searchedBook == firstBook){
+    if(searchedBook == firstOne){
     document.getElementById("selfimp").style.display="none";
     document.getElementById("selfimp2").style.display="none";
     document.getElementById("selfimp3").style.display="none";
@@ -1318,7 +1320,7 @@ function searchBook(){
 
     }
 
-    else if(searchedBook == secondBook){
+    else if(searchedBook == secondOne){
     document.getElementById("selfimp").style.display="none";
     document.getElementById("selfimp2").style.display="none";
     document.getElementById("selfimp3").style.display="none";
@@ -1333,7 +1335,7 @@ function searchBook(){
 
     }
 
-    else if(searchedBook == thirdBook){
+    else if(searchedBook == thirdOne){
     document.getElementById("selfimp").style.display="block";
     document.getElementById("selfimp2").style.display="none";
     document.getElementById("selfimp3").style.display="none";
@@ -1347,7 +1349,7 @@ function searchBook(){
     document.getElementById("novel3").style.display="none";
     }
 
-   else if(searchedBook == fourthBook){
+   else if(searchedBook == fourthOne){
     
     document.getElementById("selfimp").style.display="none";
     document.getElementById("selfimp2").style.display="block";
@@ -1362,7 +1364,7 @@ function searchBook(){
     document.getElementById("novel3").style.display="none";
     }
 
-    else if(searchedBook== fifthBook){
+    else if(searchedBook== fifthOne){
     document.getElementById("selfimp").style.display="none";
     document.getElementById("selfimp2").style.display="none";
     document.getElementById("selfimp3").style.display="none";
@@ -1376,7 +1378,7 @@ function searchBook(){
     document.getElementById("novel3").style.display="none";
     }
 
-    else if(searchedBook==sixthBook){
+    else if(searchedBook==sixthOne){
         document.getElementById("selfimp").style.display="none";
         document.getElementById("selfimp2").style.display="none";
         document.getElementById("selfimp3").style.display="none";
@@ -1391,7 +1393,7 @@ function searchBook(){
         
     }
 
-    else if(searchedBook==seventhBook){
+    else if(searchedBook==seventhOne){
         document.getElementById("selfimp").style.display="none";
         document.getElementById("selfimp2").style.display="none";
         document.getElementById("selfimp3").style.display="block";
@@ -1405,7 +1407,7 @@ function searchBook(){
         document.getElementById("fantasy3").style.display="none";
     }
 
-    else if(searchedBook==eighthBook){
+    else if(searchedBook==eighthOne){
         document.getElementById("selfimp").style.display="none";
         document.getElementById("selfimp2").style.display="none";
         document.getElementById("selfimp3").style.display="none";
@@ -1419,7 +1421,7 @@ function searchBook(){
         document.getElementById("fantasy3").style.display="none";
     }
 
-    else if(searchedBook == ninthBook){
+    else if(searchedBook == ninthOne){
         document.getElementById("selfimp").style.display="none";
         document.getElementById("selfimp2").style.display="none";
         document.getElementById("selfimp3").style.display="none";
