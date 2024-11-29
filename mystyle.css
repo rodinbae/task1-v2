@@ -1,0 +1,456 @@
+/* The codes below are for Responsive CSS */
+
+* {
+    box-sizing: border-box;
+  }
+
+  @media only screen and (min-width: 768px) {
+    /* for desktop */ 
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+  }
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    /* border: 1px solid red; */
+}
+
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+@media only screen and (max-width: 768px) {
+ /* for mobile displays */
+    [class*="col-"] {
+      width: 100%;
+    }
+
+  
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  
+
+
+/* custom font */
+.arima-arial {
+  font-family: "Arima", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 350;
+  font-style: normal;
+}
+  
+/* my css codes below */
+
+#site_icon{
+  
+  a{
+  text-decoration: none;
+  color: yellow;  
+  }
+  a:hover{
+    color:black;
+  }
+}
+
+#site_navbar{
+  background-color: blueviolet;
+  color: yellow;
+
+  button{
+    border: 2px solid yellow;
+    border-radius: 5px;
+    width: 25px;
+    height: 30px;
+    background-color: blueviolet;
+    position: relative;
+    left: 40px;
+    bottom: 5px;
+
+  }
+
+  button:hover{
+    background-color:black;
+  }
+}
+#site_navbar ul{
+  padding: 25px;
+margin-left: 20px;
+}
+
+  ul li{
+
+    list-style-type: none;
+    float:left;
+    padding-left: 50px;
+    position: relative;
+    
+  }
+
+  li a{
+    color:yellow;
+    text-decoration: none;
+
+  }
+
+  li a:hover{
+    text-decoration: underline;
+    color:black;
+  }
+
+#cart_area{
+  position: relative;
+  padding-left: 11px;
+  top: 2px;
+  right: 19px;
+  margin: 7px;
+  color:yellow;
+}
+
+
+
+#sliders_area{
+  width: 60%;
+  position: relative;
+  bottom: 50px;  
+}
+
+
+#filter_buttons{
+  text-align: center;
+  margin: 20px;
+  button{
+    padding:3px;
+    margin-left: 5px;
+    border-radius: 5px;
+    background-color: blueviolet;
+    color:yellow;
+  }
+  button:hover{
+  background-color: black;
+}
+form{
+  position: relative;
+  right: 512px;
+  top: 0.5px;
+  float: right;
+}
+}
+
+#searchBooks{
+  width: 180px;
+  height: 33px;
+  border-radius: 5px;
+  
+}
+
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-direction: row;
+}
+
+ 
+#footer_area {
+  background-color: blueviolet;
+  color:yellow;
+}
+
+
+/* the bottom area with two buttons on the cart */
+#bottom_area{
+  
+  padding-left: 75px;
+  padding-top: 50px;
+
+  button{
+    margin: 2px;
+    color:yellow;
+    border-radius: 5px;
+    background-color: blueviolet;
+  }
+
+}
+
+/* positioning of the products on the cart  */
+
+#firstProduct {
+  text-align: center;
+}
+
+#firstProductAmount{
+  text-align: center;
+}
+
+#firstProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#secondProduct {
+  text-align: center;
+}
+
+#secondProductAmount{
+  text-align: center;
+}
+
+#secondProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#thirdProduct {
+  text-align: center;
+}
+
+#thirdProductAmount{
+  text-align: center;
+}
+
+#thirdProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#fourthProduct {
+  text-align: center;
+}
+
+#fourthProductAmount{
+  text-align: center;
+}
+
+#fourthProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#fifthProduct {
+  text-align: center;
+}
+
+#fifthProductAmount{
+  text-align: center;
+}
+
+#fifthProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#sixthProduct {
+  text-align: center;
+}
+
+#sixthProductAmount{
+  text-align: center;
+}
+
+#sixthProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#seventhProduct {
+  text-align: center;
+}
+
+#seventhProductAmount{
+  text-align: center;
+}
+
+#seventhProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#eighthProduct {
+  text-align: center;
+}
+
+#eighthProductAmount{
+  text-align: center;
+}
+
+#eighthProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+#ninthProduct {
+  text-align: center;
+}
+
+#ninthProductAmount{
+  text-align: center;
+}
+
+#ninthProductButtons{
+  text-align: center;
+  padding-top: 20px;
+  button{
+    margin:2px;
+    background-color: blueviolet;
+    color:yellow;
+    border-radius: 5px;
+  }
+}
+
+/* totals area on the cart */
+#totals_area{
+  padding-top: 50px;
+  font-weight: bold;
+}
+
+/* for the cards */
+
+.myCard{
+  position: relative;
+  top: 5px;
+  padding: 2px;
+  border-radius: 5px;
+  width: 258px;
+  height: 650px;
+  border: 2px solid black;
+  margin-bottom: 15px;
+  margin-right: 20px;
+}
+
+.card_top{
+  width: 250px;
+  height: 250px;
+}
+
+.card_body{
+  font-size: 20px;
+  position: relative;
+  top: 140px;
+  text-align: center;
+}
+
+.card_footer{
+  text-align: center;
+  position: relative;
+  top: 140px;
+
+  button {
+    text-align: center;
+    background-color: blueviolet;
+    border-radius: 25px;
+    height: 33px;
+    width: 120px;
+    color: yellow;
+  }
+
+  button:hover{
+    background-color: grey;
+    font-weight: bolder;
+  }
+}
+
+.user_warning{
+  
+  height: 80px;
+  width: 315px;
+  border: solid black 3px;
+  border-radius: 3px;
+  background-color: blueviolet;
+  color: yellow;
+
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.uw_top{
+    h5{
+      text-align: center;
+      position: relative;
+      top: 10px;
+    }
+  }
+  .uw_body{
+    text-indent: 5px;
+    margin-left: 5px;
+    position: relative;
+    top: 10px;
+  }
+
+  .uw_bottom{
+    text-align: center;
+    button{
+     position: relative;
+     bottom: 67px;
+     left: 135px;
+     border: solid 1px black;
+     border-radius: 3px;
+    }
+  }

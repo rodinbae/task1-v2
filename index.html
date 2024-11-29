@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="mystyle.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ Kitapçılık</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Arima:wght@100..700&display=swap');
+    </style>
+</head>
+<body onload="hideButtons()">
+
+<div class="row">
+    <nav id="site_navbar" class="col-12">
+        <div id="site_icon"> 
+           <a href="index.html" style="position: relative; top: 20px; left: 10px;"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
+                <path fill-rule="evenodd" d="M11 4.717c-2.286-.58-4.16-.756-7.045-.71A1.99 1.99 0 0 0 2 6v11c0 1.133.934 2.022 2.044 2.007 2.759-.038 4.5.16 6.956.791V4.717Zm2 15.081c2.456-.631 4.198-.829 6.956-.791A2.013 2.013 0 0 0 22 16.999V6a1.99 1.99 0 0 0-1.955-1.993c-2.885-.046-4.76.13-7.045.71v15.081Z" clip-rule="evenodd"/>
+              </svg>
+              <h5 style="position: relative; bottom: 22px; left: 30px;" class="arima-arial">XYZ Kitapçılık</h5>
+            </a>
+        </div>  
+    <ul id="nav_linkscontainer" class="arima-arial">
+        <li><a href="index.html">Ana Sayfa</a></li>
+        <li><a href="#kitaplar">Kitaplar</a></li>
+        <li><a href="audiobooks.html">Sesli Kitaplar</a></li>
+        <li><a href="aboutus.html">Hakkımızda</a></li>
+        <li><a href="contactus.html">İletişim</a></li>
+        <button type="button" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">
+          <span id="cart_area">
+            <i class="bi bi-bag"></i>
+        </span>
+      </button>
+    </ul>
+    </nav>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h3 style="text-align: center;">Duyurular</h3>
+</div>
+</div>
+
+
+
+<div class="row">
+    <div class="col-12">
+        <div class="container mt-5" id="sliders_area"> 
+            <div id="carouselExampleDark" class="carousel carousel-dark slide">
+              <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+              </div>
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="10000">
+                  <img src="./images/reklam01.jpg" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="fw-bold">Dunya Kitap Gununuz Kutlu Olsun!</h5>
+                    <p class="lead">Secili kitaplarda indirimden faydalanmak icin resme tiklayin!</p>
+                  </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <img src="./images/reklam04.png" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="fw-bold">Etkinlik</h5>
+                    <p class="lead">Magazamizdaki etkinlik icin resme tiklayin!</p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="./images/reklam03.jpg" class="d-block w-100" alt="...">
+                  <div class="carousel-caption d-none d-md-block">
+                    <h5 class="fw-bold">Kitap Bagisi</h5>
+                    <p class="lead">Etkinlik icin resime tiklayin!</p>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>    
+          </div>
+    </div>
+</div>
+
+
+<div class="row">
+    <div class="col-12">
+        <h3 style="text-align: center;" id="kitaplar">Kitaplar</h3>
+    <div id="filter_buttons">
+        <button type="button" onclick="filterAll()">Hepsi</button>
+        <button type="button" onclick="filterNovel()">Roman</button>
+        <button type="button" onclick="filterSelfImp()">Gelişim</button>
+        <button type="button" onclick="filterFantasy()">Fantastik</button> 
+        <form">
+          <input type="search" id="searchForBooks" placeholder="type book name here">
+        </form>
+        <button type="button" style="margin-left: 1px;" onclick="searchBook()">Search</button>
+    </div>
+    </div>
+</div>
+
+<div class="user_warning" id="uw_warning">
+  <div class="uw_top">
+    <h5>Warning</h5>
+  </div>
+  <div class="uw_body">
+    <p>You have successfully added a product</p>
+  </div>
+  <div class="uw_bottom">
+    <button type="button" onclick="stopWarning()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/>
+    </svg>
+    </button>
+  </div>
+</div>
+
+
+<!-- The codes below are for bootstrap card codes but I made my own cards -->
+
+<!-- <div class="flex-container">
+<div class="row">
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="fantasy">
+      <img src="images/kitap.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addToCart(book1)" id="book1" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>   
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="novel">
+      <img src="images/kitap2.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addToCart(book2)" id="book2" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="selfimp">
+      <img src="images/kitap3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addThirdToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+ </div>
+ </div>
+ <div class="flex-container">
+ <div class="row">
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="selfimp2">
+      <img src="images/kitap4.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addFourthToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="novel2">
+      <img src="images/kitap5.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addFifthToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="fantasy2">
+      <img src="images/kitap6.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addSixthToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+ </div>
+</div>
+<div class="flex-container">
+ <div class="row">
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="selfimp3">
+      <img src="images/kitap7.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addSeventhToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="novel3">
+      <img src="images/kitap8.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addEighthToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+  <div class="col-4">
+    <div class="card" style="width: 18rem;" id="fantasy3">
+      <img src="images/kitap9.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <button type="button" class="btn btn-primary" onclick="addNinthToCart()" data-bs-toggle="offcanvas" data-bs-target="#mycanvas">Add To Cart</button>
+      </div>
+    </div>
+  </div>
+ </div>
+</div> -->
+
+<!-- my own card design -->
+   
+<div class="flex-container">
+  <div class="row">
+    <div class="col-12">
+      <div class="myCard" id="fantasy">
+        <div class="card_top">
+          <img src="images/kitap.jpg" alt="cover image of the first book">
+        </div>
+        <div class="card_body">
+          <h5>The Witcher</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addToCart()">Add to Cart</button>
+        </div>
+      </div>
+      <div class="myCard" id="novel">
+        <div class="card_top">
+          <img src="images/kitap2.jpg" alt="cover image of the second book">
+        </div>
+        <div class="card_body">
+          <h5>1984</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addSecondToCart()">Add to Cart</button>
+        </div>
+      </div>
+      <div class="myCard" id="selfimp">
+        <div class="card_top">
+          <img src="images/kitap3.jpg" alt="cover image of the third book">
+        </div>
+        <div class="card_body">
+          <h5>Hayat Icin 12 Kural</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addThirdToCart()">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+    </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="myCard" id="selfimp2">
+        <div class="card_top">
+          <img src="images/kitap4.jpg" alt="cover image of the fourth book">
+        </div>
+        <div class="card_body">
+          <h5>Atomik Aliskanliklar</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addFourthToCart()">Add to Cart</button>
+        </div>
+      </div> 
+      <div class="myCard" id="novel2">
+        <div class="card_top">
+          <img src="images/kitap5.jpg" alt="cover image of the fifth book">
+        </div>
+        <div class="card_body">
+          <h5>Muhtesem Gatsby</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addFifthToCart()">Add to Cart</button>
+        </div>
+      </div> 
+      <div class="myCard" id="fantasy2">
+        <div class="card_top">
+          <img src="images/kitap6.jpg" alt="cover image of the sixth book">
+        </div>
+        <div class="card_body">
+          <h5>Darth Bane: Yikim Yolu</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addSixthToCart()">Add to Cart</button>
+        </div>
+      </div> 
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12">
+      <div class="myCard" id="selfimp3">
+        <div class="card_top">
+          <img src="images/kitap7.jpg" alt="cover image of the seventh book">
+        </div>
+        <div class="card_body">
+          <h5>Zengin Baba Yoksul Baba</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addSeventhToCart()">Add to Cart</button>
+        </div>
+      </div> 
+      <div class="myCard" id="novel3">
+        <div class="card_top">
+          <img src="images/kitap8.jpg" alt="cover image of the eighth book">
+        </div>
+        <div class="card_body">
+          <h5>Don Kisot</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addEighthToCart()">Add to Cart</button>
+        </div>
+      </div> 
+      <div class="myCard" id="fantasy3">
+        <div class="card_top">
+          <img src="images/kitap9.jpg" alt="cover image of the ninth book">
+        </div>
+        <div class="card_body">
+          <h5>Taht Oyunlari</h5>
+          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iste nesciunt animi optio officia accusamus?</p>
+        </div>
+        <div class="card_footer">
+          <button type="button" onclick="addNinthToCart()">Add to Cart</button>
+        </div>
+      </div> 
+    </div>
+    </div>
+  </div>
+    
+          
+<!-- Footer  -->
+<div class="row">
+  <div class="col-12" id="footer_area">
+    <h3 style="text-align: center;" class="arima-arial">XYZ Kitapçılık &COPY; 2024</h3>
+  </div>
+</div>
+ 
+
+
+<!-- OFFCANVAS TEST -->
+<div class="offcanvas offcanvas-end" tabindex="-1" id="mycanvas">
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Shopping Cart</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <div id="firstProduct">
+      The cart is empty. Please add a product.
+    </div>
+    <div id="firstProductAmount">
+    </div>
+    <div id="firstProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="secondProduct"></div>
+    <div id="secondProductAmount">
+    </div>
+    <div id="secondProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="thirdProduct"></div>
+    <div id="thirdProductAmount">
+    </div>
+    <div id="thirdProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="fourthProduct"></div>
+    <div id="fourthProductAmount">
+    </div>
+    <div id="fourthProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="fifthProduct"></div>
+    <div id="fifthProductAmount"></div>
+    <div id="fifthProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="sixthProduct"></div>
+    <div id="sixthProductAmount">
+    </div>
+    <div id="sixthProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="seventhProduct"></div>
+    <div id="seventhProductAmount">
+    </div>
+    <div id="seventhProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="eighthProduct"></div>
+    <div id="eighthProductAmount">
+    </div>
+    <div id="eighthProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="ninthProduct"></div>
+    <div id="ninthProductAmount">
+    </div>
+    <div id="ninthProductButtons">
+      <button type="button" onclick="decreaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="removeBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m15 9-6 6m0-6 6 6m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+      <button type="button" onclick="increaseBook()"><svg class="w-6 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 7.757v8.486M7.757 12h8.486M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/>
+      </svg>
+      </button>
+    </div>
+    <div id="totals_area">
+
+    </div>
+    <div id="bottom_area">
+      <button type="button" onclick="eraseAll()">Erase Cart</button><a href="checkout.html"><button type="button">Purchase Item(s)</button></a>
+    </div>
+  </div>
+</div>
+
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.js"></script>
+    <script src="myscript.js"></script>
+</body>
+</html>
